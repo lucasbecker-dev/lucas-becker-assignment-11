@@ -18,10 +18,10 @@
         <td><a th:href="@{/transactions/{transactionId}(transactionId=${transaction.id})}" th:inline="text">[[${transaction.id}]]</a></td>
         <td th:inline="text">[[${transaction.date}]]</td>
         <td th:inline="text">[[${transaction.retailer}]]</td>
-        <td th:inline="text" th:if="${transaction.type.equals('D')}">[[${transaction.amount}]]</td>
-        <td th:inline="text" th:unless="${transaction.type.equals('D')}">&nbsp;</td>
         <td th:inline="text" th:if="${transaction.type.equals('C')}">[[${transaction.amount}]]</td>
         <td th:inline="text" th:unless="${transaction.type.equals('C')}">&nbsp;</td>
+        <td th:inline="text" th:if="${transaction.type.equals('D')}">[[${transaction.amount}]]</td>
+        <td th:inline="text" th:unless="${transaction.type.equals('D')}">&nbsp;</td>
     </tr>
     <!-- These 4 rows below are for demonstration purposes only
          You will need to edit the code below in order to make

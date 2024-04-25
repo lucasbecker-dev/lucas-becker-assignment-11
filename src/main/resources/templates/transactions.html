@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Online Bank</title>
-    <link rel="stylesheet" href="/css/transactions.css"/>
+    <link href="/css/transactions.css" rel="stylesheet"/>
 </head>
 <body>
 <h2>Transaction History</h2>
@@ -17,12 +17,13 @@
         <th>Funds Out</th>
     </tr>
     <tr th:each="transaction : ${transactions}">
-        <td><a th:href="@{/transactions/{transactionId}(transactionId=${transaction.id})}" th:inline="text">[[${transaction.id}]]</a></td>
+        <td><a th:href="@{/transactions/{transactionId}(transactionId=${transaction.id})}" th:inline="text">[[${transaction.id}]]</a>
+        </td>
         <td th:inline="text">[[${transaction.date}]]</td>
         <td th:inline="text">[[${transaction.retailer}]]</td>
-        <td th:inline="text" th:if="${transaction.type.equals('C')}">[[${transaction.amount}]]</td>
+        <td th:if="${transaction.type.equals('C')}" th:inline="text">[[${transaction.amount}]]</td>
         <td th:inline="text" th:unless="${transaction.type.equals('C')}">&nbsp;</td>
-        <td th:inline="text" th:if="${transaction.type.equals('D')}">[[${transaction.amount}]]</td>
+        <td th:if="${transaction.type.equals('D')}" th:inline="text">[[${transaction.amount}]]</td>
         <td th:inline="text" th:unless="${transaction.type.equals('D')}">&nbsp;</td>
     </tr>
 </table>

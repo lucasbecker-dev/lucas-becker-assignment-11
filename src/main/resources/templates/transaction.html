@@ -6,10 +6,10 @@
 </head>
 <body>
 <div>
-<h2 th:inline="text">Transaction ID: [[${transaction.id}]]
-    <span th:if="${transaction.type.equals('C')}"> (Credit)</span>
-    <span th:if="${transaction.type.equals('D')}"> (Debit)</span>
-</h2>
+    <h2 th:inline="text">Transaction ID: [[${transaction.id}]]
+        <span th:if="${transaction.type.equals('C')}"> (Credit)</span>
+        <span th:if="${transaction.type.equals('D')}"> (Debit)</span>
+    </h2>
 </div>
 <div>
     <div th:inline="text">Date: [[${transaction.date}]]</div>

@@ -23,4 +23,7 @@ public class TransactionService {
         return transactions;
     }
 
+    public Transaction getTransactionById(Long id) {
+        return transactionRepo.findById(id);
+    }
 }

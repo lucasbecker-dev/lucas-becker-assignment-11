@@ -5,15 +5,20 @@
     <title>Online Bank - Transaction</title>
 </head>
 <body>
-<div>
-    <h2 th:inline="text">Transaction ID: [[${transaction.id}]]
-        <span th:if="${transaction.type.equals('C')}"> (Credit)</span>
-        <span th:if="${transaction.type.equals('D')}"> (Debit)</span>
-    </h2>
+<div th:if="${transaction != null}">
+    <div>
+        <h2 th:inline="text">Transaction ID: [[${transaction.id}]]
+            <span th:if="${transaction.type.equals('C')}"> (Credit)</span>
+            <span th:if="${transaction.type.equals('D')}"> (Debit)</span>
+        </h2>
+    </div>
+    <div th:inline="text">Date: [[${transaction.date}]]</div>
+    <div th:inline="text">Amount: <span th:if="${transaction.type.equals('C')}">-</span>[[${transaction.amount}]]</div>
+    <div th:inline="text">Description: [[${transaction.retailer}]]</div>
 </div>
-<div th:inline="text">Date: [[${transaction.date}]]</div>
-<div th:inline="text">Amount: <span th:if="${transaction.type.equals('C')}">-</span>[[${transaction.amount}]]</div>
-<div th:inline="text">Description: [[${transaction.retailer}]]</div>
+<div th:unless="${transaction != null}">
+    <h2>Transaction not found.</h2>
+</div>
 <div>
     <a href="/transactions">back</a>
 </div>
